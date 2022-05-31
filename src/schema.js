@@ -1,8 +1,9 @@
-const {gql} = require('apollo-server');
+const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Meal {
     id: ID!
+    mealID: String!
     area: String
     category: String
     ingredient1: String
@@ -27,10 +28,17 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addFavoriteMeal(id: ID!): Meal
+    addFavoriteMeal(
+      mealID: String!
+      instructions: String!
+      meal: String!
+      mealThumb: String!
+      tags: String!
+      youtube: String!
+    ): Meal
   }
 `;
 
 module.exports = {
-  typeDefs,
-}
+  typeDefs
+};
